@@ -139,8 +139,31 @@ rank_final[-which(rank_final$Size=="Unknown"),]->rank_final
 ```
 ```{r}
 m1<-multinom(priority~Age+Size+Frequency,data=rank_final,family=binomial(link="logit"))
-summary(m1)a
+summary(m1)
 # m2<-multinom(priority~Age+Size+Frequency,data=rank_final2,family=binomial(link="logit"))
 # summary(m2)
 
+```
+### Model Evaluation
+```{r}
+
+
+
+```
+
+
+## Priority Plot
+```{r}
+size_pri<-rank_final%>%group_by(Size,priority)%>%summarise(num=n())%>%arrange(desc(num),.by_group=TRUE)
+ggplot(size_pri,aes(x=Size,y=num,fill=priority,group=num))+geom_bar(stat="identity",position="dodge")+ggtitle("#1 Priority of different sizes")+geom_text(aes(label=num),position=position_dodge(.9))
+```
+
+```{r}
+age_pri<-rank_final%>%group_by(Age,priority)%>%summarise(num=n())%>%arrange(desc(num),.by_group=TRUE)
+ggplot(age_pri,aes(x=Age,y=num,fill=priority,group=num))+geom_bar(stat="identity",position="dodge")+ggtitle("#1 Priority of different ages")+geom_text(aes(label=num),position=position_dodge(.9))
+```
+
+```{r}
+freq_pri<-rank_final%>%group_by(Frequency,priority)%>%summarise(num=n())%>%arrange(desc(num),.by_group=TRUE)
+ggplot(freq_pri,aes(x=Frequency,y=num,fill=priority,group=num))+geom_bar(stat="identity",position="dodge")+ggtitle("#1 Priority of different frequencies")+geom_text(aes(label=num),position=position_dodge(.9))
 ```
