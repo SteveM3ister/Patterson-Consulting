@@ -1,0 +1,23 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1616416509678.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "508749848",
+    "id" : "CCC08C94",
+    "lastKnownWriteTime" : 1616416221,
+    "last_content_update" : 1616416221,
+    "path" : "C:/Desktop/MSSP/MA676/Patterson Consulting/Patterson_rank_analysis.Rmd",
+    "project_path" : "Patterson_rank_analysis.Rmd",
+    "properties" : {
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}
