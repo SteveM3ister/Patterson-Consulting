@@ -263,5 +263,5 @@ ggplot(freq_pri,aes(x=Frequency,y=num,fill=priority,group=num))+geom_bar(stat="i
 
 ```{r}
 freq_pri<-rank_final%>%group_by(Budget,priority)%>%summarise(num=n())%>%arrange(desc(num),.by_group=TRUE)
-ggplot(freq_pri,aes(x=Budget,y=num,fill=priority,group=num))+geom_bar(stat="identity",position="dodge")+ggtitle("#1 Priority of different frequencies")+geom_text(aes(label=num),position=position_dodge(.9))
+ggplot(freq_pri,aes(x=Budget,y=num,fill=priority,group=num))+geom_bar(stat="identity",position="dodge")+ggtitle("#1 Priority of different budgets")+geom_text(aes(label=num),position=position_dodge(.9))
 ```
