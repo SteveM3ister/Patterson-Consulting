@@ -63,9 +63,10 @@ survey_data$Priority <- ifelse(survey_data$`Q21.18 Rank Advocacy`==1, "Advocacy"
 
 
 # histograms of independent variables
+agebysize<-survey_data%>%group_by(Age,Size)%>%summarise(num=n())%>%arrange(desc(num),.by_group=TRUE)
 
-ggplot(data = survey_data) + geom_bar(aes(Age, fill = Size)) +
-  ggtitle("Histogram of Organization Age by Size")
+ggplot(data = agebysize) + geom_bar(aes(Age, y=num,fill = Size,group=num),position="dodge",stat="identity") +
+  ggtitle("Histogram of Organization Age by Size")+geom_text(aes(label=num),position=position_dodge(.9))
 ggplot(data = survey_data) + geom_bar(aes(Size))
 ggplot(data = survey_data) + geom_bar(aes(Frequency))
 
