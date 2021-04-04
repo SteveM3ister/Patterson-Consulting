@@ -256,8 +256,11 @@ a<-c("rare","ultra-rare")
 b<-c("Highest","Medium-High","Medium-Low","Lowest")
 nd<- expand.grid(a,b)
 colnames(nd)<-c("Frequency","Budget")
-nd["class"]<-predict(m2,newdata=nd)
+prob<-predict(m2,newdata=nd,type="probs")
+nd[,3:10]<-prob
 nd%<>%arrange(desc(Frequency,Budget))
+colnames(nd)[3:10]<-colnames(prob)
+nd["Highest Class"]<-predict(m2,newdata=nd)
 nd
 # pred3<-fitted(m3)
 # resid3<-residuals(m3)
